@@ -235,6 +235,17 @@ CAMLprim value ocaml_av_set_stream_time_base(value _stream, value _time_base) {
   CAMLreturn(Val_unit);
 }
 
+CAMLprim value ocaml_av_get_stream_framerate(value _stream) {
+  CAMLparam1(_stream);
+  CAMLlocal1(ans);
+  av_t * av = StreamAv_val(_stream);
+  int index = StreamIndex_val(_stream);
+
+  value_of_rational(&av->format_context->streams[index]->avg_frame_rate, &ans);
+
+  CAMLreturn(ans);
+}
+
 value * ocaml_av_get_control_message_callback(struct AVFormatContext *ctx) {
   return &((av_t *)av_format_get_opaque(ctx))->control_message_callback;
 }

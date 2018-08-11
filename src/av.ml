@@ -38,6 +38,8 @@ external get_codec : (_, 'm)stream -> 'm Avcodec.t = "ocaml_av_get_stream_codec_
 external get_time_base : (_, _)stream -> Avutil.rational = "ocaml_av_get_stream_time_base"
 external set_time_base : (_, _)stream -> Avutil.rational -> unit = "ocaml_av_set_stream_time_base"
 
+external get_framerate : (_, _)stream -> Avutil.rational = "ocaml_av_get_stream_framerate"
+
 
 external _get_streams : input container -> media_type -> int list = "ocaml_av_get_streams"
 

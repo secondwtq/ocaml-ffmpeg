@@ -85,6 +85,8 @@ val set_time_base : (_, _)stream -> Avutil.rational -> unit
 val get_duration : ?format:Time_format.t -> (input, _)stream -> Int64.t
 (** Same as {!Av.get_input_duration} for the input streams. *)
 
+val get_framerate : (_, _)stream -> Avutil.rational
+
 val get_metadata : (input, _)stream -> (string * string) list
 (** Same as {!Av.get_input_metadata} for the input streams. *)
 
